@@ -12,7 +12,10 @@ const cutGrass = () => {
   } else if (tool === "old push mower") {
     wallet += 50;
     console.log(`You just made $50 for cutting that yard with your ${tool}! The total amount in your wallet is now $${wallet}.`)
-  }
+  } else if (tool === "battery powered mower") {
+    wallet += 100;
+    console.log(`You just made $100 for cutting that yard with your ${tool}! The total amount in your wallet is now $${wallet}.`)
+}
 }
 
 const buyRustyScissors = () => {
