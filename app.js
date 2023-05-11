@@ -3,14 +3,16 @@ let tool = "teeth"
 let wallet = 0;
 
 const cutGrass = () => {
-    if (tool === "teeth") {
-        wallet += 1;
-        console.log(`You just made $1 for cutting that yard with your ${tool}! The total amount in your wallet is now $${wallet}.`)
-    } else {
-        wallet += 5
-        console.log(`You just made $5 for cutting that yard with your ${tool}! The total amount in your wallet is now $${wallet}.`)
-    }
-    
+  if (tool === "teeth") {
+    wallet += 1;
+    console.log(`You just made $1 for cutting that yard with your ${tool}! The total amount in your wallet is now $${wallet}.`)
+  } else if (tool === "rusty scissors") {
+    wallet += 5;
+    console.log(`You just made $5 for cutting that yard with your ${tool}! The total amount in your wallet is now $${wallet}.`)
+  } else if (tool === "old push mower") {
+    wallet += 50;
+    console.log(`You just made $50 for cutting that yard with your ${tool}! The total amount in your wallet is now $${wallet}.`)
+  }
 }
 
 const buyRustyScissors = () => {
@@ -54,3 +56,6 @@ cutGrass()
 cutGrass()
 cutGrass()
 buyOldPushMower()
+cutGrass()
+cutGrass()
+cutGrass()
