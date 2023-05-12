@@ -4,6 +4,8 @@ let wallet = 0;
 const resetGame = () => {
   tools = ["teeth"];
   wallet = 0;
+  document.getElementById("tools").textContent = tools.join(", ");
+  document.getElementById("wallet").textContent = wallet;
   console.log(
     `You have decided to reset the game. You now have ${tools} as a tool and ${wallet} in your wallet`
   );
@@ -24,6 +26,7 @@ const cutGrass = () => {
     earnings += 250;
   }
   wallet += earnings;
+  document.getElementById("wallet").textContent = wallet;
   console.log(
     `You just made $${earnings} for cutting that yard with your ${tools.join(
       ", "
@@ -39,6 +42,8 @@ const buyTool = (toolName, cost) => {
   if (wallet >= cost) {
     tools.push(toolName);
     wallet -= cost;
+    document.getElementById("tools").textContent = tools.join(", ");
+    document.getElementById("wallet").textContent = wallet;
     console.log(
       `You bought a ${toolName} for $${cost}! You now have ${tools.join(
         ", "
@@ -55,6 +60,8 @@ const sellTool = (toolName) => {
     const toolPrice = Math.floor(toolPrices[toolName] / 2);
     wallet += toolPrice;
     tools.splice(toolIndex, 1);
+    document.getElementById("tools").textContent = tools.join(", ");
+    document.getElementById("wallet").textContent = wallet;
     console.log(
       `You sold your ${toolName} for $${toolPrice}! You now have ${tools.join(
         ", "
@@ -72,39 +79,24 @@ const toolPrices = {
   "starving students": 500,
 };
 
-cutGrass();
-cutGrass();
-cutGrass();
-cutGrass();
-cutGrass();
-buyTool("rusty scissors", 5);
-cutGrass();
-cutGrass();
-cutGrass();
-cutGrass();
-cutGrass();
-buyTool("old push mower", 25);
-cutGrass();
-cutGrass();
-buyTool("old push mower", 25);
-cutGrass();
-cutGrass();
-sellTool("old push mower", 25);
-cutGrass();
-buyTool("battery powered mower", 250);
-cutGrass();
-cutGrass();
-cutGrass();
-cutGrass();
-cutGrass();
-buyTool("starving students", 500);
-cutGrass();
-cutGrass();
-sellTool("battery powered mower", 250);
-sellTool("old push mower", 25);
-sellTool("rusty scissors", 5);
-cutGrass();
-cutGrass();
-cutGrass();
-resetGame();
-cutGrass();
+document.getElementById("cutGrass").addEventListener("click", cutGrass);
+
+document.getElementById("buyTool").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const toolName = event.target.elements.toolName.value;
+  const cost = toolPrices[toolName];
+  buyTool(toolName, cost);
+  event.target.reset();
+});
+
+document.getElementById("sellTool").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const toolName = event.target.elements.toolName.value;
+  sellTool(toolName);
+  event.target.reset();
+});
+
+document.getElementById("resetGame").addEventListener("click", resetGame);
+
+document.getElementById("tools").textContent = tools.join(", ");
+document.getElementById("wallet").textContent = wallet;

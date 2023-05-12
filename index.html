@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="./app.js"></script>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <h1>LandScaper Game</h1>
+    <p>
+      You have <span id="tools">teeth</span> as a tool and
+      <span id="wallet">0</span> in your wallet.
+    </p>
+    <button id="cutGrass">Cut grass</button>
+    <form id="buyTool">
+      <label for="toolName">Tool name:</label>
+      <select id="toolName" name="toolName">
+        <option value="rusty scissors">Rusty scissors - $5</option>
+        <option value="old push mower">Old push mower - $25</option>
+        <option value="battery powered mower">
+          Battery powered mower - $250
+        </option>
+        <option value="starving students">Starving students - $500</option>
+      </select>
+      <button type="submit">Buy tool</button>
+    </form>
+    <form id="sellTool">
+      <label for="toolName">Tool name:</label>
+      <select id="toolName" name="toolName">
+        <option value="rusty scissors">Rusty scissors</option>
+        <option value="old push mower">Old push mower</option>
+        <option value="battery powered mower">Battery powered mower</option>
+        <option value="starving students">Starving students</option>
+      </select>
+      <button type="submit">Sell tool</button>
+    </form>
+    <button id="resetGame">Reset game</button>
+  </body>
 </html>
