@@ -29,6 +29,10 @@ const cutGrass = () => {
       `You just made $250 for having the ${tool} cut that yard for you! The total amount in your wallet is now $${wallet}.`
     );
   }
+  if (wallet >= 1000) {
+    console.log("You have won the game LandScaper");
+    return;
+  }
 };
 
 const buyRustyScissors = () => {
