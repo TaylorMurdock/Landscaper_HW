@@ -23,6 +23,11 @@ const cutGrass = () => {
     console.log(
       `You just made $100 for cutting that yard with your ${tool}! The total amount in your wallet is now $${wallet}.`
     );
+  } else if (tool === "starving students") {
+    wallet += 250;
+    console.log(
+      `You just made $250 for having the ${tool} cut that yard for you! The total amount in your wallet is now $${wallet}.`
+    );
   }
 };
 
@@ -76,12 +81,12 @@ const buyBattPoweredMower = () => {
 
 const hireStarvingStudent = () => {
   if (wallet >= 500 && tool === "battery powered mower") {
-    tool = "starving student";
+    tool = "starving students";
     wallet -= 500;
     console.log(
-      `You hired a starving student for $500! You now have a ${tool} to cut grass for you and you also now have $${wallet}`
+      `You hired a team of starving students for $500! You now have a team of ${tool} to cut grass for you and you also now have $${wallet}`
     );
-  } else if (tool === "starving student") {
+  } else if (tool === "starving students") {
     console.log(`you already have a ${tool} as a tool`);
   } else {
     console.log(
@@ -114,3 +119,7 @@ cutGrass();
 cutGrass();
 cutGrass();
 hireStarvingStudent();
+cutGrass();
+cutGrass();
+cutGrass();
+cutGrass();
